@@ -1,0 +1,47 @@
+<footer class="main-footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Boston Billiards</h3>
+        <p>Professional billiards equipment for serious players. Quality cues, tables, and accessories.</p>
+        <div class="social-links">
+          <a href="#" class="social-link">Facebook</a>
+          <a href="#" class="social-link">Twitter</a>
+          <a href="#" class="social-link">Instagram</a>
+        </div>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a routerLink="/">Home</a></li>
+          <li><a routerLink="/product">Products</a></li>
+          <li><a routerLink="/customer">Customer Service</a></li>
+          <li><a routerLink="/contact">Contact Us</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Categories</h4>
+        <ul>
+          <li><a routerLink="/product" [queryParams]="{category: 'Pool Cues'}">Pool Cues</a></li>
+          <li><a routerLink="/product" [queryParams]="{category: 'Pool Tables'}">Tables</a></li>
+          <li><a routerLink="/product" [queryParams]="{category: 'Billiard Balls'}">Balls</a></li>
+          <li><a routerLink="/product" [queryParams]="{category: 'Accessories'}">Accessories</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Contact Info</h4>
+        <p>123 Billiards Street<br>
+        Boston, MA 02101</p>
+        <p>Phone: (555) 123-BILLIARDS<br>
+        Email: info@bostonbilliards.com</p>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2024 Boston Billiards. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

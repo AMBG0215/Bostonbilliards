@@ -13,6 +13,9 @@
         <module name="bostonbilliards" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="bostonbilliards" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

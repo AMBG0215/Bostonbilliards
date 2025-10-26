@@ -1,0 +1,107 @@
+<header class="main-header">
+  <!-- Top Header with Logo, Search, and Cart -->
+  <div class="header-top">
+    <div class="container-fluid">
+      <div class="top-content">
+        <!-- Logo -->
+        <div class="logo">
+          <a routerLink="/" class="logo-link">
+            <h1>Boston Billiards</h1>
+          </a>
+        </div>
+
+        <!-- Search with Dropdown -->
+        <div class="search-wrapper">
+          <div class="category-select" (click)="toggleCategoryDropdown()">
+            <button class="category-btn">
+              All
+              <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="category-dropdown" *ngIf="isCategoryDropdownOpen">
+              <a routerLink="/product" class="category-item" (click)="closeCategoryDropdown()">All Products</a>
+              <a *ngFor="let cat of categories" 
+                 routerLink="/product" 
+                 [queryParams]="{category: cat.name}"
+                 class="category-item"
+                 (click)="closeCategoryDropdown()">
+                {{cat.name}}
+              </a>
+            </div>
+          </div>
+          
+          <div class="search-box">
+            <input type="text" 
+                   [(ngModel)]="searchQuery"
+                   (keyup.enter)="onSearch()"
+                   placeholder="Search for pool cues, tables, accessories..." 
+                   class="search-input">
+            <button class="voice-search-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                <line x1="12" y1="19" x2="12" y2="23"></line>
+                <line x1="8" y1="23" x2="16" y2="23"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Cart -->
+        <div class="cart-container">
+          <a routerLink="/cart" class="cart-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+            <span class="cart-badge" *ngIf="cartCount > 0">{{cartCount}}</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <nav class="main-nav">
+    <div class="container-fluid">
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a routerLink="/" class="nav-link" [class.active]="isActiveRoute('/')">
+            Home
+          </a>
+        </li>
+
+        <li class="nav-item dropdown" (mouseenter)="showProductsDropdown = true" (mouseleave)="showProductsDropdown = false">
+          <a routerLink="/product" class="nav-link">
+            All Products
+            <svg class="nav-dropdown-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </a>
+          <div class="nav-dropdown-menu" *ngIf="showProductsDropdown">
+            <a *ngFor="let cat of categories" 
+               routerLink="/product" 
+               [queryParams]="{category: cat.name}"
+               class="nav-dropdown-item">
+              {{cat.name}}
+            </a>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a routerLink="/order" class="nav-link">
+            Orders
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a routerLink="/contact" class="nav-link" [class.active]="isActiveRoute('/contact')">
+            Contact
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,88 @@
+<!-- Hero Section with Carousel -->
+<div class="hero-section">
+  <div class="hero-content">
+    <div class="hero-text">
+      <h1>Top Selling Billiards PRODUCTS</h1>
+      <p>Professional equipment for serious players</p>
+      <button class="cta-button" routerLink="/product">Shop Now</button>
+    </div>
+  </div>
+</div>
+
+<!-- Featured Products Carousel -->
+<div class="featured-section">
+  <div class="container">
+    <h2>Featured Products</h2>
+    <div class="products-carousel">
+      <div class="product-card" *ngFor="let product of featuredProducts">
+        <div class="product-image-container">
+          <img [src]="getProductImage(product.imageFile)" 
+               [alt]="product.name"
+               (error)="handleImageError($event)"
+               class="product-image">
+        </div>
+        <div class="product-info">
+          <h3>{{ product.name }}</h3>
+          <p class="product-price">{{ priceFormatService.formatPrice(product.price) }}</p>
+          <button class="view-product-btn" routerLink="/product">View Product</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Best Sellers Section -->
+<div class="best-sellers-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <h2>Best Sellers</h2>
+        <div class="best-sellers-grid">
+          <div class="best-seller-card" *ngFor="let product of bestSellers">
+            <div class="best-seller-image">
+              <img [src]="getProductImage(product.imageFile)" 
+                   [alt]="product.name"
+                   (error)="handleImageError($event)">
+            </div>
+            <div class="best-seller-info">
+              <h4>{{ product.name }}</h4>
+              <p class="best-seller-price">{{ priceFormatService.formatPrice(product.price) }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="view-all-section">
+          <h3>View All Products</h3>
+          <p>Discover our complete range of billiards equipment</p>
+          <button class="view-all-btn" routerLink="/product">View All Products</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Brands Section -->
+<div class="brands-section">
+  <div class="container">
+    <h2>Top Selling Brands</h2>
+    <div class="brands-grid">
+      <div class="brand-item">
+        <h3>PREDATOR</h3>
+        <p>Professional Pool Cues</p>
+      </div>
+      <div class="brand-item">
+        <h3>CUETEC</h3>
+        <p>Carbon Fiber Technology</p>
+      </div>
+      <div class="brand-item">
+        <h3>ARAMITH</h3>
+        <p>Premium Billiard Balls</p>
+      </div>
+      <div class="brand-item">
+        <h3>DIAMOND</h3>
+        <p>Professional Tables</p>
+      </div>
+    </div>
+  </div>
+</div>

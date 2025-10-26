@@ -1,0 +1,55 @@
+<div class="container-fluid hero-contact p-0 m-0">
+  <h2 *ngIf="!selectedCategory">Billiards Store</h2>
+  <h2 *ngIf="selectedCategory">{{selectedCategory}} Products</h2>
+
+  <!-- Category Filter Info -->
+  <div *ngIf="selectedCategory" class="category-filter-info">
+    <p>Showing {{filteredProducts.length}} product(s) in {{selectedCategory}}</p>
+    <a routerLink="/product" class="view-all-link">View All Products</a>
+  </div>
+
+  <!-- Product Grid -->
+  <div class="row product-grid">
+    <div *ngFor="let product of filteredProducts" class="col-md-3 col-lg-3 mb-4">
+      <div class="product-card">
+        <!-- Stock Badge -->
+        <div class="stock-badge">In Stock</div>
+
+        <!-- Product Image -->
+        <div class="product-image-container">
+          <img class="product-image"
+               [src]="getProductImage(product.imageFile)"
+               [alt]="product.name"
+               (error)="handleImageError($event)"/>
+        </div>
+
+        <!-- Product Info -->
+        <div class="product-info">
+          <!-- Product Name -->
+          <h5 class="product-name">{{product.name}}</h5>
+
+          <!-- Reviews -->
+          <div class="product-reviews">
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <span class="review-count">(0 Reviews)</span>
+          </div>
+
+          <!-- Price -->
+          <div class="product-price">{{priceFormatService.formatPrice(product.price)}}</div>
+
+          <!-- Add to Cart Button -->
+          <button class="add-to-cart-btn" (click)="addToCart(product)">
+            <i class="fas fa-shopping-cart"></i>
+            ADD TO CART
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

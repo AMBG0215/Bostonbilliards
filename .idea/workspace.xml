@@ -4,143 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32bf6113-ef2c-4a82-b971-05efa9e40fbe" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.ask.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.ask2agent.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/angular.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/app/app.config.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/app/app.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/app/app.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/app/app.routes.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/app/app.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/app/app.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/main.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/app-routing.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/app.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/app.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/app.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/app.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/app.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/company-home/company-home.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/company-home/company-home.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/company-home/company-home.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/company-home/company-home.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/contact-us/contact-us.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/contact-us/contact-us.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/contact-us/contact-us.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/contact-us/contact-us.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/customer-service/customer-service.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/customer-service/customer-service.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/customer-service/customer-service.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/customer-service/customer-service.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/footer/footer.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/footer/footer.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/footer/footer.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/footer/footer.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/gallery/gallery.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/gallery/gallery.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/gallery/gallery.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/gallery/gallery.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/header/header.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/header/header.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/header/header.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/header/header.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/main-body/main-body.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/main-body/main-body.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/main-body/main-body.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/main-body/main-body.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/main-header/main-header.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/main-header/main-header.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/main-header/main-header.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/main-header/main-header.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/model/menu.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/model/menu.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/model/product-category.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/model/product-category.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/model/product.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/model/product.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/product-category/product-category.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/product-category/product-category.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/product-category/product-category.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/product-category/product-category.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/product-order/product-order.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/product-order/product-order.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/product-order/product-order.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/product-order/product-order.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/service/base-http.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/service/base-http.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/service/cart.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/service/cart.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/service/category.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/service/category.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/service/customer.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/service/customer.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/service/menu.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/service/menu.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/service/order.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/service/order.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/service/product.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/service/product.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/shopping-cart/shopping-cart.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/shopping-cart/shopping-cart.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/shopping-cart/shopping-cart.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/shopping-cart/shopping-cart.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/xbox/xbox.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/xbox/xbox.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/xbox/xbox.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/app/xbox/xbox.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/assets/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/assets/GMART.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/assets/btn1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/assets/header.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/assets/icons/shoppingcart.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/assets/products/Alaska.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/assets/products/Chocolate.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/assets/products/Nescafe.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/assets/products/Victoria.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/assets/products/alaska.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/assets/products/banana.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/assets/products/bananasplit.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/assets/products/cardbury.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/assets/products/denonreceiver.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/assets/products/hersheys.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/assets/products/leomilka.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/assets/products/mango.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/assets/products/milo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/assets/products/rcacable.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/assets/products/soundar2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/assets/products/soundbar.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/assets/products/strawberry.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/assets/products/yamahareceiver.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/assets/scenery/AA1hEW1S.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/environments/environment.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/environments/environment.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/main.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/src/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/src/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/tsconfig.app.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercise/tsconfig.spec.json" beforeDir="false" />
-    </list>
+    <list default="true" id="32bf6113-ef2c-4a82-b971-05efa9e40fbe" name="Changes" comment="frontend" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/exercise" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory"><![CDATA[{
   "lastFilter": {
@@ -168,7 +39,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/SCHOOL/CODES/Bostonbilliards",
     "settings.editor.selected.configurable": "preferences.lookFeel"
@@ -182,6 +53,19 @@
       <option name="presentableId" value="Default" />
       <updated>1761497795451</updated>
     </task>
+    <task id="LOCAL-00001" summary="frontend">
+      <option name="closed" value="true" />
+      <created>1761498296294</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1761498296294</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="frontend" />
+    <option name="LAST_COMMIT_MESSAGE" value="frontend" />
   </component>
 </project>

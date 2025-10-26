@@ -1,52 +1,67 @@
 package com.gavieres.service;
 
+import com.gavieres.entity.CustomerData;
 import com.gavieres.model.Customer;
+import com.gavieres.repository.CustomerDataRepository;
+import com.gavieres.util.Transform;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
+@Slf4j
 public class CustomerService {
 
+    @Autowired
+    private CustomerDataRepository customerDataRepository;
+
     public List<Customer> getAll() {
-        // Mock data for now - will be replaced with actual database calls
-        List<Customer> customers = new ArrayList<>();
-        
-        Customer customer1 = new Customer();
-        customer1.setId(1);
-        customer1.setFirstname("John");
-        customer1.setMiddlename("Michael");
-        customer1.setLastname("Smith");
-        customer1.setEmail("john.smith@email.com");
-        customer1.setPhone("123-456-7890");
-        customer1.setAddress("123 Main St, Boston, MA");
-        customers.add(customer1);
-        
-        return customers;
+        List<CustomerData> customerDataList = customerDataRepository.findAll();
+        return customerDataList.stream()
+                .map(Transform::toCustomer)
+                .collect(Collectors.toList());
     }
     
     public Customer create(Customer customer) {
-        // Mock implementation - will be replaced with actual database save
-        return customer;
+        CustomerData customerData = Transform.toCustomerData(customer);
+        CustomerData savedCustomerData = customerDataRepository.save(customerData);
+        return Transform.toCustomer(savedCustomerData);
     }
     
     public Customer update(Customer customer) {
-        // Mock implementation - will be replaced with actual database update
-        return customer;
+        Optional<CustomerData> existingCustomerOpt = customerDataRepository.findById((long) customer.getId());
+        if (existingCustomerOpt.isEmpty()) {
+            throw new RuntimeException("Customer not found with id: " + customer.getId());
+        }
+        
+        CustomerData existingCustomer = existingCustomerOpt.get();
+        existingCustomer.setFirstname(customer.getFirstname());
+        existingCustomer.setMiddlename(customer.getMiddlename());
+        existingCustomer.setLastname(customer.getLastname());
+        existingCustomer.setEmail(customer.getEmail());
+        existingCustomer.setPhone(customer.getPhone());
+        existingCustomer.setAddress(customer.getAddress());
+        existingCustomer.setCity(customer.getCity());
+        existingCustomer.setState(customer.getState());
+        existingCustomer.setZipCode(customer.getZipCode());
+        
+        CustomerData updatedCustomerData = customerDataRepository.save(existingCustomer);
+        return Transform.toCustomer(updatedCustomerData);
     }
     
     public void delete(int id) {
-        // Mock implementation - will be replaced with actual database delete
+        customerDataRepository.deleteById((long) id);
     }
     
     public Customer get(int id) {
-        // Mock implementation - will be replaced with actual database query
-        Customer customer = new Customer();
-        customer.setId(id);
-        customer.setFirstname("Sample");
-        customer.setLastname("Customer");
-        customer.setEmail("sample@email.com");
-        return customer;
+        Optional<CustomerData> customerDataOpt = customerDataRepository.findById((long) id);
+        if (customerDataOpt.isEmpty()) {
+            throw new RuntimeException("Customer not found with id: " + id);
+        }
+        return Transform.toCustomer(customerDataOpt.get());
     }
 }

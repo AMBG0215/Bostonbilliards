@@ -46,6 +46,20 @@ public class OrderItemService {
         orderItemRepository.deleteById(id);
     }
 
+    public OrderItemData updateOrderStatus(Long id, String orderStatus, String adminNotes) {
+        Optional<OrderItemData> orderOpt = orderItemRepository.findById(id);
+        if (orderOpt.isEmpty()) {
+            throw new RuntimeException("Order not found with id: " + id);
+        }
+        
+        OrderItemData order = orderOpt.get();
+        order.setOrderStatus(orderStatus);
+        order.setAdminNotes(adminNotes);
+        order.setLastUpdated(LocalDateTime.now());
+        
+        return orderItemRepository.save(order);
+    }
+
     public int generateNextOrderId() {
         List<OrderItemData> allOrders = orderItemRepository.findAll();
         if (allOrders.isEmpty()) {

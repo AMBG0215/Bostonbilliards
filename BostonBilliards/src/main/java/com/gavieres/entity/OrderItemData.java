@@ -46,6 +46,12 @@ public class OrderItemData {
     @Column(name = "status")
     private Integer status;
 
+    @Column(name = "order_status")
+    private String orderStatus;
+
+    @Column(name = "admin_notes", columnDefinition = "TEXT")
+    private String adminNotes;
+
     @Column(name = "created")
     private LocalDateTime created;
 
@@ -57,6 +63,7 @@ public class OrderItemData {
         this.created = LocalDateTime.now();
         this.lastUpdated = LocalDateTime.now();
         this.status = 1; // Default to CONFIRMED
+        this.orderStatus = "PENDING"; // Default to PENDING
     }
 
     // Getters and Setters
@@ -162,6 +169,22 @@ public class OrderItemData {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public String getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(String orderStatus) {
+        this.orderStatus = orderStatus;
+    }
+
+    public String getAdminNotes() {
+        return adminNotes;
+    }
+
+    public void setAdminNotes(String adminNotes) {
+        this.adminNotes = adminNotes;
     }
 
     public LocalDateTime getCreated() {

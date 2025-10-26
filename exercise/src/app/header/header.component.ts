@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Router, ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CartService } from '../service/cart.service';
+import { AuthService, User } from '../service/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -16,6 +17,7 @@ export class HeaderComponent {
   searchQuery = '';
   isCategoryDropdownOpen = false;
   showProductsDropdown = false;
+  currentUser: User | null = null;
 
   categories = [
     { name: 'Pool Cues' },
@@ -27,10 +29,15 @@ export class HeaderComponent {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private cartService: CartService
+    private cartService: CartService,
+    private authService: AuthService
   ) {
     this.cartService.cartItems$.subscribe(items => {
       this.cartCount = this.cartService.getCartCount();
+    });
+
+    this.authService.currentUser$.subscribe(user => {
+      this.currentUser = user;
     });
   }
 
@@ -57,5 +64,18 @@ export class HeaderComponent {
       // Implement search functionality here
       console.log('Searching for:', this.searchQuery);
     }
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/home']);
+  }
+
+  goToLogin() {
+    this.router.navigate(['/login']);
+  }
+
+  goToRegister() {
+    this.router.navigate(['/register']);
   }
 }

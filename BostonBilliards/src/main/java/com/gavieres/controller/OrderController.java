@@ -1,5 +1,6 @@
 package com.gavieres.controller;
 
+import com.gavieres.dto.OrderStatusUpdateRequest;
 import com.gavieres.entity.OrderItemData;
 import com.gavieres.service.OrderItemService;
 import lombok.extern.slf4j.Slf4j;
@@ -105,6 +106,18 @@ public class OrderController {
             return ResponseEntity.ok("Order deleted successfully");
         } catch (Exception ex) {
             log.error("Failed to delete order with id {}: {}", id, ex.getMessage(), ex);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ex.getMessage());
+        }
+    }
+
+    @PutMapping("/{id}/status")
+    public ResponseEntity<?> updateOrderStatus(@PathVariable Long id, @RequestBody OrderStatusUpdateRequest request) {
+        try {
+            OrderItemData updatedOrder = orderItemService.updateOrderStatus(id, request.getOrderStatus(), request.getAdminNotes());
+            log.info("Updated order {} status to {}", id, request.getOrderStatus());
+            return ResponseEntity.ok(updatedOrder);
+        } catch (Exception ex) {
+            log.error("Failed to update order status for id {}: {}", id, ex.getMessage(), ex);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ex.getMessage());
         }
     }

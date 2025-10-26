@@ -97,9 +97,133 @@ h1 {
   color: #000;
 }
 
+.status-accepted {
+  background: #28a745;
+  color: #fff;
+}
+
+.status-rejected {
+  background: #dc3545;
+  color: #fff;
+}
+
+.status-processing {
+  background: #17a2b8;
+  color: #fff;
+}
+
+.status-shipped {
+  background: #6f42c1;
+  color: #fff;
+}
+
+.status-delivered {
+  background: #20c997;
+  color: #fff;
+}
+
 .status-confirmed {
   background: #28a745;
+  color: #fff;
+}
+
+.status-cancelled {
+  background: #dc3545;
+  color: #fff;
+}
+
+.status-shipped {
+  background: #6f42c1;
+  color: #fff;
+}
+
+.status-delivered {
+  background: #20c997;
+  color: #fff;
+}
+
+.status-unknown {
+  background: #6c757d;
+  color: #fff;
+}
+
+/* Admin Controls */
+.admin-controls {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #007bff;
+}
+
+.admin-controls h4 {
+  margin: 0 0 1rem 0;
+  color: #495057;
+  font-size: 1rem;
+}
+
+.admin-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.admin-buttons .btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-success {
+  background: #28a745;
   color: white;
+}
+
+.btn-success:hover {
+  background: #218838;
+}
+
+.btn-danger {
+  background: #dc3545;
+  color: white;
+}
+
+.btn-danger:hover {
+  background: #c82333;
+}
+
+.btn-info {
+  background: #17a2b8;
+  color: white;
+}
+
+.btn-info:hover {
+  background: #138496;
+}
+
+/* Admin Notes */
+.admin-notes {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #e9ecef;
+  border-radius: 8px;
+  border-left: 4px solid #6c757d;
+}
+
+.admin-notes h4 {
+  margin: 0 0 0.5rem 0;
+  color: #495057;
+  font-size: 1rem;
+}
+
+.admin-notes p {
+  margin: 0;
+  color: #6c757d;
+  font-style: italic;
 }
 
 .status-cancelled {

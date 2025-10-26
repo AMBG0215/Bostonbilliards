@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Order History</h1>
+  <h1>{{ isAdmin ? 'All Orders' : 'My Orders' }}</h1>
 
   <!-- Loading State -->
   <div class="loading" *ngIf="loading">
@@ -13,8 +13,8 @@
 
   <!-- Empty State -->
   <div class="orders-empty" *ngIf="!loading && !error && groupedOrders.length === 0">
-    <h2>No orders yet</h2>
-    <p>Start shopping to see your orders here!</p>
+    <h2>{{ isAdmin ? 'No orders found' : 'No orders yet' }}</h2>
+    <p>{{ isAdmin ? 'No customers have placed orders yet.' : 'Start shopping to see your orders here!' }}</p>
     <button class="btn btn-primary" routerLink="/product">Browse Products</button>
   </div>
 
@@ -29,8 +29,8 @@
           <p class="customer-name">Customer: {{ order.customerName }}</p>
         </div>
         <div class="order-status">
-          <span class="status-badge" [ngClass]="getStatusClass(order.items[0].status)">
-            {{ getStatusBadge(order.items[0].status) }}
+          <span class="status-badge" [ngClass]="getStatusClass(order.items[0].orderStatus, order.items[0].status)">
+            {{ getStatusBadge(order.items[0].orderStatus, order.items[0].status) }}
           </span>
           <p class="order-total">₱{{ order.total.toFixed(2) }}</p>
         </div>
@@ -77,8 +77,27 @@
             <span>₱{{ order.total.toFixed(2) }}</span>
           </div>
         </div>
+        
+        <!-- Admin Controls -->
+        <div class="admin-controls" *ngIf="isAdmin && order.items[0].orderStatus === 'PENDING'">
+          <h4>Admin Actions:</h4>
+          <div class="admin-buttons">
+            <button class="btn btn-success" (click)="acceptOrder(order.items[0].id!)">
+              Accept 
+            </button>
+            <button class="btn btn-danger" (click)="rejectOrder(order.items[0].id!)">
+              Reject
+            </button>
+            <button class="btn btn-info" (click)="processOrder(order.items[0].id!)">
+              Processing
+            </button>
+          </div>
+        </div>
+        
+        <!-- Admin Notes Display -->
+        <div class="admin-notes" *ngIf="isAdmin && order.items[0].adminNotes">
+          <h4>Admin Notes:</h4>
+          <p>{{ order.items[0].adminNotes }}</p>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
 

@@ -21,7 +21,7 @@
 
 .top-content {
   display: grid;
-  grid-template-columns: 250px 1fr auto;
+  grid-template-columns: 250px 1fr auto auto;
   gap: 30px;
   align-items: center;
 }
@@ -286,10 +286,96 @@
   padding-left: 25px;
 }
 
+/* User Authentication Styles */
+.user-container {
+  display: flex;
+  align-items: center;
+}
+
+.user-logged-in {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.user-name {
+  color: #fff;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.user-role {
+  color: #A8D5E2;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.logout-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+  background: #c0392b;
+}
+
+.user-not-logged-in {
+  display: flex;
+  gap: 10px;
+}
+
+.login-btn, .register-btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.login-btn {
+  background: transparent;
+  color: #A8D5E2;
+  border-color: #A8D5E2;
+}
+
+.login-btn:hover {
+  background: #A8D5E2;
+  color: #2c3e50;
+}
+
+.register-btn {
+  background: #A8D5E2;
+  color: #2c3e50;
+  border-color: #A8D5E2;
+}
+
+.register-btn:hover {
+  background: #2c3e50;
+  color: #A8D5E2;
+  border-color: #2c3e50;
+}
+
 /* Responsive Design */
 @media (max-width: 1200px) {
   .top-content {
-    grid-template-columns: 200px 1fr auto;
+    grid-template-columns: 200px 1fr auto auto;
     gap: 20px;
   }
 

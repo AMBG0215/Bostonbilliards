@@ -37,6 +37,15 @@ public class CustomerData {
     @Column(name = "zipCode")
     private String zipCode;
 
+    @Column(name = "password", nullable = false)
+    private String password;
+
+    @Column(name = "role", nullable = false)
+    private String role = "CUSTOMER";
+
+    @Column(name = "enabled", nullable = false)
+    private Boolean enabled = true;
+
     @Column(name = "created")
     private LocalDateTime created;
 
@@ -144,6 +153,30 @@ public class CustomerData {
 
     public void setLastUpdated(LocalDateTime lastUpdated) {
         this.lastUpdated = lastUpdated;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
 
     public String getFullName() {

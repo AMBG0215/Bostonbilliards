@@ -59,6 +59,24 @@
             <span class="cart-badge" *ngIf="cartCount > 0">{{cartCount}}</span>
           </a>
         </div>
+
+        <!-- User Authentication -->
+        <div class="user-container">
+          <div *ngIf="currentUser; else notLoggedIn" class="user-logged-in">
+            <div class="user-info">
+              <span class="user-name">{{currentUser.fullName}}</span>
+              <span class="user-role" *ngIf="currentUser.role === 'ADMIN'">Admin</span>
+            </div>
+            <button (click)="logout()" class="logout-btn">Logout</button>
+          </div>
+          
+          <ng-template #notLoggedIn>
+            <div class="user-not-logged-in">
+              <button (click)="goToLogin()" class="login-btn">Login</button>
+              <button (click)="goToRegister()" class="register-btn">Register</button>
+            </div>
+          </ng-template>
+        </div>
       </div>
     </div>
   </div>

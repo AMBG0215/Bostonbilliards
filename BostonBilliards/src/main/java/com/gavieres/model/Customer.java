@@ -8,6 +8,9 @@ public class Customer {
     private String email;
     private String phone;
     private String address;
+    private String city;
+    private String state;
+    private String zipCode;
 
     public Customer() {}
 
@@ -76,5 +79,29 @@ public class Customer {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getZipCode() {
+        return zipCode;
+    }
+
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
     }
 }

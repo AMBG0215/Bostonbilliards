@@ -1,0 +1,164 @@
+<div class="register-container">
+  <div class="register-card">
+    <div class="register-header">
+      <h2>Create Account</h2>
+      <p>Join Boston Billiards and start shopping today!</p>
+    </div>
+
+    <form (ngSubmit)="onSubmit()" class="register-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="firstname">First Name *</label>
+          <input
+            type="text"
+            id="firstname"
+            [(ngModel)]="registerData.firstname"
+            name="firstname"
+            placeholder="First name"
+            required
+            [disabled]="loading"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="lastname">Last Name *</label>
+          <input
+            type="text"
+            id="lastname"
+            [(ngModel)]="registerData.lastname"
+            name="lastname"
+            placeholder="Last name"
+            required
+            [disabled]="loading"
+          >
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="middlename">Middle Name</label>
+        <input
+          type="text"
+          id="middlename"
+          [(ngModel)]="registerData.middlename"
+          name="middlename"
+          placeholder="Middle name (optional)"
+          [disabled]="loading"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address *</label>
+        <input
+          type="email"
+          id="email"
+          [(ngModel)]="registerData.email"
+          name="email"
+          placeholder="Enter your email"
+          required
+          [disabled]="loading"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input
+          type="tel"
+          id="phone"
+          [(ngModel)]="registerData.phone"
+          name="phone"
+          placeholder="Phone number (optional)"
+          [disabled]="loading"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password *</label>
+        <input
+          type="password"
+          id="password"
+          [(ngModel)]="registerData.password"
+          name="password"
+          placeholder="Create a password"
+          required
+          [disabled]="loading"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password *</label>
+        <input
+          type="password"
+          id="confirmPassword"
+          [(ngModel)]="confirmPassword"
+          name="confirmPassword"
+          placeholder="Confirm your password"
+          required
+          [disabled]="loading"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input
+          type="text"
+          id="address"
+          [(ngModel)]="registerData.address"
+          name="address"
+          placeholder="Street address (optional)"
+          [disabled]="loading"
+        >
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="city">City</label>
+          <input
+            type="text"
+            id="city"
+            [(ngModel)]="registerData.city"
+            name="city"
+            placeholder="City (optional)"
+            [disabled]="loading"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="state">State</label>
+          <input
+            type="text"
+            id="state"
+            [(ngModel)]="registerData.state"
+            name="state"
+            placeholder="State (optional)"
+            [disabled]="loading"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="zipCode">ZIP Code</label>
+          <input
+            type="text"
+            id="zipCode"
+            [(ngModel)]="registerData.zipCode"
+            name="zipCode"
+            placeholder="ZIP (optional)"
+            [disabled]="loading"
+          >
+        </div>
+      </div>
+
+      <div *ngIf="error" class="error-message">
+        {{ error }}
+      </div>
+
+      <button type="submit" class="register-btn" [disabled]="loading">
+        <span *ngIf="loading">Creating Account...</span>
+        <span *ngIf="!loading">Create Account</span>
+      </button>
+    </form>
+
+    <div class="register-footer">
+      <p>Already have an account? <a (click)="goToLogin()" class="login-link">Sign in here</a></p>
+    </div>
+  </div>
+</div>

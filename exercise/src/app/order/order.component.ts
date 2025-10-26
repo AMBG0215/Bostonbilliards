@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { OrderService, OrderItem } from '../service/order.service';
 import { PriceFormatService } from '../service/price-format.service';
+import { AuthService } from '../service/auth.service';
 
 interface OrderGroup {
   orderId: number;
@@ -24,30 +25,49 @@ export class OrderComponent implements OnInit {
   groupedOrders: OrderGroup[] = [];
   loading: boolean = true;
   error: string = '';
+  isAdmin: boolean = false;
 
   constructor(
     private orderService: OrderService,
-    public priceFormatService: PriceFormatService
+    public priceFormatService: PriceFormatService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
+    this.isAdmin = this.authService.isAdmin();
     this.loadOrders();
   }
 
   loadOrders(): void {
-    // For demo, we'll load all orders (you can filter by customer later)
-    this.orderService.getAllOrders().subscribe({
-      next: (orders) => {
-        this.orders = orders;
-        this.groupOrders();
-        this.loading = false;
-      },
-      error: (error) => {
-        console.error('Error loading orders:', error);
-        this.error = 'Failed to load orders. Please try again later.';
-        this.loading = false;
-      }
-    });
+    if (this.isAdmin) {
+      // Admin sees all orders
+      this.orderService.getAllOrders().subscribe({
+        next: (orders) => {
+          this.orders = orders;
+          this.groupOrders();
+          this.loading = false;
+        },
+        error: (error) => {
+          console.error('Error loading orders:', error);
+          this.error = 'Failed to load orders. Please try again later.';
+          this.loading = false;
+        }
+      });
+    } else {
+      // Customer sees only their orders
+      this.orderService.getMyOrders().subscribe({
+        next: (orders) => {
+          this.orders = orders;
+          this.groupOrders();
+          this.loading = false;
+        },
+        error: (error) => {
+          console.error('Error loading orders:', error);
+          this.error = 'Failed to load your orders. Please try again later.';
+          this.loading = false;
+        }
+      });
+    }
   }
 
   groupOrders(): void {
@@ -88,7 +108,21 @@ export class OrderComponent implements OnInit {
     return `assets/products/${imageFile}`;
   }
 
-  getStatusBadge(status: number | undefined): string {
+  getStatusBadge(orderStatus: string | undefined, status: number | undefined): string {
+    // Use new orderStatus if available, otherwise fall back to old status
+    if (orderStatus) {
+      switch (orderStatus.toUpperCase()) {
+        case 'PENDING': return 'Pending';
+        case 'ACCEPTED': return 'Accepted';
+        case 'REJECTED': return 'Rejected';
+        case 'PROCESSING': return 'Processing';
+        case 'SHIPPED': return 'Shipped';
+        case 'DELIVERED': return 'Delivered';
+        default: return orderStatus;
+      }
+    }
+    
+    // Fallback to old status system
     switch (status) {
       case 0: return 'Pending';
       case 1: return 'Confirmed';
@@ -99,7 +133,21 @@ export class OrderComponent implements OnInit {
     }
   }
 
-  getStatusClass(status: number | undefined): string {
+  getStatusClass(orderStatus: string | undefined, status: number | undefined): string {
+    // Use new orderStatus if available, otherwise fall back to old status
+    if (orderStatus) {
+      switch (orderStatus.toUpperCase()) {
+        case 'PENDING': return 'status-pending';
+        case 'ACCEPTED': return 'status-accepted';
+        case 'REJECTED': return 'status-rejected';
+        case 'PROCESSING': return 'status-processing';
+        case 'SHIPPED': return 'status-shipped';
+        case 'DELIVERED': return 'status-delivered';
+        default: return 'status-unknown';
+      }
+    }
+    
+    // Fallback to old status system
     switch (status) {
       case 0: return 'status-pending';
       case 1: return 'status-confirmed';
@@ -119,6 +167,54 @@ export class OrderComponent implements OnInit {
       day: 'numeric',
       hour: '2-digit',
       minute: '2-digit'
+    });
+  }
+
+  // Admin order management methods
+  acceptOrder(orderId: number): void {
+    const adminNotes = prompt('Add admin notes (optional):') || '';
+    this.orderService.updateOrderStatus(orderId, 'ACCEPTED', adminNotes).subscribe({
+      next: () => {
+        alert('Order accepted successfully!');
+        this.loadOrders(); // Reload orders to show updated status
+      },
+      error: (error) => {
+        console.error('Error accepting order:', error);
+        alert('Failed to accept order. Please try again.');
+      }
+    });
+  }
+
+  rejectOrder(orderId: number): void {
+    const adminNotes = prompt('Add admin notes (required for rejection):') || '';
+    if (!adminNotes.trim()) {
+      alert('Admin notes are required when rejecting an order.');
+      return;
+    }
+    
+    this.orderService.updateOrderStatus(orderId, 'REJECTED', adminNotes).subscribe({
+      next: () => {
+        alert('Order rejected successfully!');
+        this.loadOrders(); // Reload orders to show updated status
+      },
+      error: (error) => {
+        console.error('Error rejecting order:', error);
+        alert('Failed to reject order. Please try again.');
+      }
+    });
+  }
+
+  processOrder(orderId: number): void {
+    const adminNotes = prompt('Add admin notes (optional):') || '';
+    this.orderService.updateOrderStatus(orderId, 'PROCESSING', adminNotes).subscribe({
+      next: () => {
+        alert('Order marked as processing!');
+        this.loadOrders();
+      },
+      error: (error) => {
+        console.error('Error updating order:', error);
+        alert('Failed to update order. Please try again.');
+      }
     });
   }
 }

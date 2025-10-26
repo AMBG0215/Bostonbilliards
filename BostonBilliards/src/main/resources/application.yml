@@ -34,3 +34,8 @@ logging:
       com: 
          gavieres: 
             bostonbilliards: TRACE
+
+# JWT Configuration
+jwt:
+  secret: your-custom-secret-key-here-make-it-long-and-random
+  expiration: 86400000 # 24 hours in milliseconds

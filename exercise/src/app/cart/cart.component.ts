@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Product } from '../model/product';
 import { PriceFormatService } from '../service/price-format.service';
 import { CartService, CartItem } from '../service/cart.service';
 import { OrderService, OrderItem } from '../service/order.service';
+import { AuthService, User } from '../service/auth.service';
 
 @Component({
   selector: 'app-cart',
@@ -30,7 +31,9 @@ export class CartComponent implements OnInit {
   constructor(
     public priceFormatService: PriceFormatService,
     private cartService: CartService,
-    private orderService: OrderService
+    private orderService: OrderService,
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -99,6 +102,13 @@ export class CartComponent implements OnInit {
   }
 
   proceedToCheckout(): void {
+    // Check if user is authenticated
+    if (!this.authService.isAuthenticated()) {
+      alert('Please login to place an order');
+      this.router.navigate(['/login']);
+      return;
+    }
+    
     this.showCheckoutForm = true;
   }
 
@@ -107,19 +117,29 @@ export class CartComponent implements OnInit {
   }
 
   submitOrder(): void {
-    if (!this.customerName || !this.customerEmail) {
-      alert('Please fill in all required fields (Name and Email)');
+    // Check if user is authenticated
+    if (!this.authService.isAuthenticated()) {
+      alert('Please login to place an order');
+      this.router.navigate(['/login']);
       return;
     }
 
-    // For simplicity, using customer ID 1 (you can implement proper customer management later)
-    const customerId = 1;
+    const currentUser = this.authService.getCurrentUser();
+    if (!currentUser) {
+      alert('Please login to place an order');
+      this.router.navigate(['/login']);
+      return;
+    }
+
+    // Use authenticated user's information
+    const customerId = currentUser.userId;
+    const customerName = currentUser.fullName;
 
     // Convert cart items to order items
     const orderItems: OrderItem[] = this.cartItems.map(item => ({
       orderId: 0, // Will be set by backend
       customerId: customerId,
-      customerName: this.customerName,
+      customerName: customerName,
       productId: item.product.id,
       productName: item.product.name,
       productDescription: item.product.description || '',

@@ -1,6 +1,6 @@
 .main-footer {
-  background: #2c3e50;
-  color: #ecf0f1;
+  background: #000000;
+  color: #ffffff;
   padding: 50px 0 20px;
   margin-top: 50px;
 }
@@ -19,14 +19,14 @@
 }
 
 .footer-section h3 {
-  color: #3498db;
+  color: #ffffff;
   font-size: 1.5em;
   margin-bottom: 15px;
   font-weight: 700;
 }
 
 .footer-section h4 {
-  color: #3498db;
+  color: #ffffff;
   font-size: 1.2em;
   margin-bottom: 15px;
   font-weight: 600;
@@ -48,13 +48,13 @@
 }
 
 .footer-section ul li a {
-  color: #ecf0f1;
+  color: #ffffff;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .footer-section ul li a:hover {
-  color: #3498db;
+  color: #ffffff;
 }
 
 .social-links {
@@ -64,22 +64,22 @@
 }
 
 .social-link {
-  color: #ecf0f1;
+  color: #ffffff;
   text-decoration: none;
   padding: 8px 12px;
-  border: 1px solid #34495e;
+  border: 1px solid #000000;
   border-radius: 5px;
   transition: all 0.3s ease;
 }
 
 .social-link:hover {
-  background: #3498db;
-  border-color: #3498db;
+  background: #ffffff;
+  border-color: #ffffff;
   color: white;
 }
 
 .footer-bottom {
-  border-top: 1px solid #34495e;
+  border-top: 1px solid #000000;
   padding-top: 20px;
   text-align: center;
   opacity: 0.8;

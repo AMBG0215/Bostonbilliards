@@ -1,11 +1,24 @@
-/* Hero Section */
+/* Hero Section - Dark Background for White Text */
 .hero-section {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: linear-gradient(135deg, #000000 0%, #333333 100%);
+  color: #ffffff;
   padding: 100px 0;
   text-align: center;
   position: relative;
   overflow: hidden;
+  border-bottom: 2px solid #ffffff;
+}
+
+/* Add dark overlay to ensure text visibility */
+.hero-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.7);
+  z-index: 1;
 }
 
 .hero-section::before {
@@ -26,27 +39,32 @@
 
 .hero-content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
 .hero-text h1 {
-  font-size: 3.5em;
-  font-weight: 700;
+  font-size: 4em;
+  font-weight: 900;
   margin-bottom: 20px;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+  color: #ffffff !important;
+  letter-spacing: 2px;
 }
 
 .hero-text p {
-  font-size: 1.3em;
+  font-size: 1.5em;
   margin-bottom: 30px;
-  opacity: 0.9;
+  opacity: 1;
+  color: #ffffff !important;
+  font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
 .cta-button {
-  background: #e74c3c;
-  color: white;
+  background: #000000;
+  color: #ffffff;
   padding: 15px 30px;
-  border: none;
+  border: 2px solid #000000;
   border-radius: 50px;
   font-size: 1.1em;
   font-weight: 600;
@@ -57,7 +75,8 @@
 }
 
 .cta-button:hover {
-  background: #c0392b;
+  background: #ffffff;
+  color: #000000;
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
@@ -65,15 +84,17 @@
 /* Featured Section */
 .featured-section {
   padding: 80px 0;
-  background: #f8f9fa;
+  background: #ffffff;
 }
 
 .featured-section h2 {
   text-align: center;
-  font-size: 2.5em;
-  color: #2c3e50;
+  font-size: 3em;
+  color: #000000;
   margin-bottom: 50px;
-  font-weight: 700;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
 .products-carousel {
@@ -120,20 +141,20 @@
 
 .product-info h3 {
   font-size: 1.2em;
-  color: #2c3e50;
+  color: #000000;
   margin-bottom: 15px;
   font-weight: 600;
 }
 
 .product-price {
   font-size: 1.4em;
-  color: #e74c3c;
+  color: #000000;
   font-weight: 700;
   margin-bottom: 20px;
 }
 
 .view-product-btn {
-  background: #3498db;
+  background: #000000;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -145,7 +166,7 @@
 }
 
 .view-product-btn:hover {
-  background: #2980b9;
+  background: #000000;
   transform: translateY(-2px);
 }
 
@@ -157,7 +178,7 @@
 
 .best-sellers-section h2 {
   font-size: 2.5em;
-  color: #2c3e50;
+  color: #000000;
   margin-bottom: 40px;
   font-weight: 700;
 }
@@ -198,20 +219,20 @@
 
 .best-seller-info h4 {
   font-size: 1.1em;
-  color: #2c3e50;
+  color: #000000;
   margin-bottom: 5px;
   font-weight: 600;
 }
 
 .best-seller-price {
   font-size: 1.2em;
-  color: #e74c3c;
+  color: #000000;
   font-weight: 700;
   margin: 0;
 }
 
 .view-all-section {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #000000 0%, #333333 100%);
   color: white;
   padding: 40px;
   border-radius: 15px;
@@ -232,7 +253,7 @@
 
 .view-all-btn {
   background: white;
-  color: #667eea;
+  color: #000000;
   padding: 12px 25px;
   border: none;
   border-radius: 25px;
@@ -252,7 +273,7 @@
 /* Brands Section */
 .brands-section {
   padding: 80px 0;
-  background: #2c3e50;
+  background: #000000;
   color: white;
 }
 
@@ -334,4 +355,53 @@
   .brands-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* FORCE WHITE TEXT - OVERRIDE EVERYTHING */
+.hero-content h1,
+.hero-content h2,
+.hero-content p {
+  color: #ffffff !important;
+  text-shadow: 3px 3px 6px rgba(255, 255, 255, 0.8) !important;
+}
+
+.hero-content h1 {
+  font-size: 4em !important;
+  font-weight: 900 !important;
+}
+
+.hero-content h2 {
+  font-size: 3em !important;
+  font-weight: 900 !important;
+}
+
+.hero-content p {
+  font-size: 1.5em !important;
+  font-weight: 600 !important;
+}
+
+/* ULTRA SPECIFIC WHITE TEXT - MAXIMUM OVERRIDE */
+section.hero .hero-slide .hero-content h1,
+section.hero .hero-slide .hero-content h2,
+section.hero .hero-slide .hero-content p {
+  color: #ffffff !important;
+  text-shadow: 3px 3px 6px rgba(0,0,0,0.8) !important;
+}
+
+section.hero .hero-slide .hero-content h1 {
+  font-size: 4em !important;
+  font-weight: 900 !important;
+  color: #ffffff !important;
+}
+
+section.hero .hero-slide .hero-content h2 {
+  font-size: 3em !important;
+  font-weight: 900 !important;
+  color: #ffffff !important;
+}
+
+section.hero .hero-slide .hero-content p {
+  font-size: 1.5em !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
 }

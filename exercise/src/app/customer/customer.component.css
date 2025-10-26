@@ -13,7 +13,7 @@
 .customer-container h1 {
   text-align: center;
   font-size: 2.5em;
-  color: #2c3e50;
+  color: #000000;
   margin-bottom: 50px;
   font-weight: 700;
 }
@@ -26,7 +26,7 @@
 
 .service-section h2,
 .support-section h2 {
-  color: #2c3e50;
+  color: #000000;
   font-size: 2em;
   margin-bottom: 30px;
   font-weight: 600;
@@ -55,7 +55,7 @@
 }
 
 .service-card h3 {
-  color: #3498db;
+  color: #000000;
   font-size: 1.3em;
   margin-bottom: 15px;
   font-weight: 600;
@@ -82,14 +82,14 @@
 }
 
 .support-item h3 {
-  color: #3498db;
+  color: #000000;
   font-size: 1.3em;
   margin-bottom: 15px;
   font-weight: 600;
 }
 
 .support-item p {
-  color: #2c3e50;
+  color: #000000;
   margin-bottom: 10px;
   line-height: 1.6;
 }

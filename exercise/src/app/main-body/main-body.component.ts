@@ -108,7 +108,7 @@ import { CartService } from '../service/cart.service';
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(44, 62, 80, 0.6);
+      background: rgba(0, 0, 0, 0.3);
       z-index: 2;
     }
 
@@ -147,7 +147,7 @@ import { CartService } from '../service/cart.service';
     }
 
     .arrow-left, .arrow-right {
-      background: rgba(44, 62, 80, 0.8);
+      background: rgba(0, 0, 0, 0.8);
       color: white;
       border: none;
       width: 50px;
@@ -159,7 +159,7 @@ import { CartService } from '../service/cart.service';
     }
 
     .arrow-left:hover, .arrow-right:hover {
-      background: #2c3e50;
+      background: #000000;
       transform: scale(1.1);
     }
 
@@ -169,20 +169,42 @@ import { CartService } from '../service/cart.service';
       text-align: center;
       color: white;
       max-width: 800px;
-      padding: 0 2rem;
+      padding: 3rem 2rem;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     }
 
     .hero-content h1 {
       font-size: 3.5rem;
-      font-weight: bold;
-      margin-bottom: 1rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      font-weight: 900;
+      margin-bottom: 0.5rem;
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
+      letter-spacing: 2px;
+    }
+
+    .hero-content h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+      letter-spacing: 1px;
     }
 
     .hero-content p {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       margin-bottom: 2rem;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+      opacity: 0.9;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
     }
 
     .hero-buttons {
@@ -205,14 +227,15 @@ import { CartService } from '../service/cart.service';
     }
 
     .btn-primary {
-      background: #2c3e50;
+      background: #000000;
       color: white;
-      border: 2px solid #2c3e50;
+      border: 2px solid #000000;
     }
 
     .btn-primary:hover {
-      background: #34495e;
-      border-color: #34495e;
+      background: #ffffff;
+      color: #000000;
+      border-color: #000000;
       transform: translateY(-2px);
     }
 
@@ -358,7 +381,7 @@ import { CartService } from '../service/cart.service';
 export class MainBodyComponent implements OnInit, OnDestroy {
   currentImageIndex = 0;
   carouselInterval: any;
-  autoSlideInterval = 4000; // 4 seconds between slides
+  autoSlideInterval = 6000; // 6 seconds between slides
   heroImages = [
     'assets/products/black_table.jpg',
     'assets/products/predator_black.jpg',

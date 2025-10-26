@@ -4,7 +4,7 @@
   align-items: center;
   min-height: 80vh;
   padding: 20px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #000000 0%, #333333 100%);
 }
 
 .login-card {
@@ -14,6 +14,7 @@
   padding: 40px;
   width: 100%;
   max-width: 400px;
+  border: 2px solid #000000;
 }
 
 .login-header {
@@ -62,7 +63,7 @@
 
 .form-group input:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: #000000;
 }
 
 .form-group input:disabled {
@@ -80,7 +81,7 @@
 }
 
 .login-btn {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #000000 0%, #333333 100%);
   color: white;
   border: none;
   padding: 14px 20px;
@@ -116,7 +117,7 @@
 }
 
 .register-link {
-  color: #667eea;
+  color: #000000;
   text-decoration: none;
   cursor: pointer;
   font-weight: 500;

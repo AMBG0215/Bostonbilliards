@@ -6,7 +6,7 @@
 
 h1 {
   text-align: center;
-  color: #2c3e50;
+  color: #000000;
   margin-bottom: 2rem;
 }
 
@@ -14,22 +14,25 @@ h1 {
 .loading, .error-message {
   text-align: center;
   padding: 3rem;
-  background: white;
+  background: #ffffff;
   border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  border: 1px solid #000000;
 }
 
 .error-message {
-  color: #e74c3c;
+  color: #000000;
+  background: #f8f8f8;
 }
 
 /* Empty State */
 .orders-empty {
   text-align: center;
   padding: 3rem;
-  background: white;
+  background: #ffffff;
   border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  border: 1px solid #000000;
 }
 
 .orders-empty h2 {
@@ -46,10 +49,11 @@ h1 {
 
 /* Order Card */
 .order-card {
-  background: white;
+  background: #ffffff;
   border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
   overflow: hidden;
+  border: 1px solid #000000;
 }
 
 /* Order Header */
@@ -58,13 +62,13 @@ h1 {
   justify-content: space-between;
   align-items: flex-start;
   padding: 1.5rem;
-  background: #f8f9fa;
-  border-bottom: 1px solid #dee2e6;
+  background: #f8f8f8;
+  border-bottom: 1px solid #000000;
 }
 
 .order-info h3 {
   margin: 0 0 0.5rem 0;
-  color: #2c3e50;
+  color: #000000;
 }
 
 .order-date {
@@ -93,72 +97,77 @@ h1 {
 }
 
 .status-pending {
-  background: #ffc107;
-  color: #000;
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
 }
 
 .status-accepted {
-  background: #28a745;
-  color: #fff;
+  background: #000000;
+  color: #ffffff;
 }
 
 .status-rejected {
-  background: #dc3545;
-  color: #fff;
+  background: #000000;
+  color: #ffffff;
 }
 
 .status-processing {
-  background: #17a2b8;
-  color: #fff;
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
 }
 
 .status-shipped {
-  background: #6f42c1;
-  color: #fff;
+  background: #000000;
+  color: #ffffff;
 }
 
 .status-delivered {
-  background: #20c997;
-  color: #fff;
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
 }
 
 .status-confirmed {
-  background: #28a745;
-  color: #fff;
+  background: #000000;
+  color: #ffffff;
 }
 
 .status-cancelled {
-  background: #dc3545;
-  color: #fff;
+  background: #000000;
+  color: #ffffff;
 }
 
 .status-shipped {
-  background: #6f42c1;
+  background: #000000;
   color: #fff;
 }
 
 .status-delivered {
-  background: #20c997;
+  background: #000000;
   color: #fff;
 }
 
 .status-unknown {
-  background: #6c757d;
-  color: #fff;
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
 }
 
 /* Admin Controls */
 .admin-controls {
   margin-top: 1rem;
   padding: 1rem;
-  background: #f8f9fa;
+  background: #f8f8f8;
   border-radius: 8px;
-  border-left: 4px solid #007bff;
+  border-left: 4px solid #000000;
+  border: 1px solid #000000;
 }
 
 .admin-controls h4 {
   margin: 0 0 1rem 0;
-  color: #495057;
+  color: #000000;
   font-size: 1rem;
 }
 
@@ -179,72 +188,79 @@ h1 {
 }
 
 .btn-success {
-  background: #28a745;
-  color: white;
+  background: #000000;
+  color: #ffffff;
+  border: 1px solid #000000;
 }
 
 .btn-success:hover {
-  background: #218838;
+  background: #ffffff;
+  color: #000000;
 }
 
 .btn-danger {
-  background: #dc3545;
-  color: white;
+  background: #000000;
+  color: #ffffff;
+  border: 1px solid #000000;
 }
 
 .btn-danger:hover {
-  background: #c82333;
+  background: #ffffff;
+  color: #000000;
 }
 
 .btn-info {
-  background: #17a2b8;
-  color: white;
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
 }
 
 .btn-info:hover {
-  background: #138496;
+  background: #000000;
+  color: #ffffff;
 }
 
 /* Admin Notes */
 .admin-notes {
   margin-top: 1rem;
   padding: 1rem;
-  background: #e9ecef;
+  background: #f8f8f8;
   border-radius: 8px;
-  border-left: 4px solid #6c757d;
+  border-left: 4px solid #000000;
+  border: 1px solid #000000;
 }
 
 .admin-notes h4 {
   margin: 0 0 0.5rem 0;
-  color: #495057;
+  color: #000000;
   font-size: 1rem;
 }
 
 .admin-notes p {
   margin: 0;
-  color: #6c757d;
+  color: #000000;
   font-style: italic;
 }
 
 .status-cancelled {
-  background: #dc3545;
+  background: #000000;
   color: white;
 }
 
 .status-shipped {
-  background: #17a2b8;
+  background: #000000;
   color: white;
 }
 
 .status-delivered {
-  background: #007bff;
+  background: #000000;
   color: white;
 }
 
 .order-total {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #2c3e50;
+  color: #000000;
   margin: 0.5rem 0 0 0;
 }
 
@@ -278,12 +294,12 @@ h1 {
 
 .item-details h4 {
   margin: 0 0 0.25rem 0;
-  color: #2c3e50;
+  color: #000000;
   font-size: 1rem;
 }
 
 .item-category {
-  color: #3498db;
+  color: #000000;
   font-size: 0.85rem;
   margin: 0 0 0.25rem 0;
 }
@@ -315,7 +331,7 @@ h1 {
 
 .item-total {
   font-weight: bold;
-  color: #2c3e50;
+  color: #000000;
   font-size: 1.1rem;
 }
 
@@ -341,7 +357,7 @@ h1 {
 .summary-row.total {
   font-size: 1.2rem;
   font-weight: bold;
-  color: #2c3e50;
+  color: #000000;
   border-top: 2px solid #dee2e6;
   padding-top: 0.5rem;
   margin-top: 0.5rem;
@@ -360,12 +376,12 @@ h1 {
 }
 
 .btn-primary {
-  background: #3498db;
+  background: #000000;
   color: white;
 }
 
 .btn-primary:hover {
-  background: #2980b9;
+  background: #000000;
 }
 
 /* Responsive Design */

@@ -172,7 +172,7 @@ import { CartService } from '../service/cart.service';
       padding: 3rem 2rem;
       background: rgba(0, 0, 0, 0.4);
       border-radius: 15px;
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(2px);
       border: 1px solid rgba(255, 255, 255, 0.1);
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     }
@@ -216,27 +216,55 @@ import { CartService } from '../service/cart.service';
 
     .btn {
       padding: 1rem 2rem;
-      border: none;
-      border-radius: 6px;
-      font-weight: bold;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      font-weight: 700;
       cursor: pointer;
-      transition: all 0.3s;
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
       text-decoration: none;
       display: inline-block;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transition: left 0.6s ease;
     }
 
     .btn-primary {
-      background: #000000;
+      background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
       color: white;
-      border: 2px solid #000000;
     }
 
     .btn-primary:hover {
-      background: #ffffff;
-      color: #000000;
-      border-color: #000000;
-      transform: translateY(-2px);
+      background: linear-gradient(135deg, #000000 0%, #2a2a2a 100%);
+      transform: translateY(-3px);
+      border-color: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-primary:hover::before {
+      left: 100%;
+    }
+
+    .btn-primary:active {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-primary:focus {
+      outline: none;
+      border-color: rgba(255, 255, 255, 0.5);
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
     }
 
     /* Top Categories Section */
@@ -248,11 +276,12 @@ import { CartService } from '../service/cart.service';
     .section-title {
       font-size: 2.5rem;
       font-weight: 800;
-      color: #2c3e50;
+      color: #000000;
       text-align: left;
       margin-bottom: 2rem;
       letter-spacing: 1px;
       text-transform: uppercase;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
     }
 
     .categories-grid {
@@ -263,28 +292,32 @@ import { CartService } from '../service/cart.service';
 
     .category-card {
       position: relative;
-      height: 400px;
-      border-radius: 12px;
+      height: 450px;
+      border-radius: 20px;
       overflow: hidden;
       cursor: pointer;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      border: 3px solid transparent;
     }
 
     .category-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      transform: translateY(-15px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+      border-color: #000000;
     }
 
     .category-image {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      filter: grayscale(20%) contrast(1.1);
     }
 
     .category-card:hover .category-image {
-      transform: scale(1.1);
+      transform: scale(1.05);
+      filter: grayscale(0%) contrast(1.2);
     }
 
     .category-overlay {
@@ -292,21 +325,34 @@ import { CartService } from '../service/cart.service';
       bottom: 0;
       left: 0;
       right: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-      padding: 2rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.3), transparent);
+      padding: 2.5rem 2rem 2rem;
       display: flex;
       align-items: flex-end;
       height: 100%;
+      backdrop-filter: blur(0.5px);
     }
 
     .category-overlay h3 {
-      color: #A8D5E2;
-      font-size: 2rem;
-      font-weight: 800;
+      color: #ffffff;
+      font-size: 2.2rem;
+      font-weight: 900;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 3px;
       margin: 0;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+      text-shadow: none;
+      position: relative;
+    }
+
+    .category-overlay h3::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: #ffffff;
+      border-radius: 2px;
     }
 
     .container {
@@ -321,24 +367,43 @@ import { CartService } from '../service/cart.service';
     }
 
     .btn-view-all {
-      background: #2c3e50;
+      background: #000000;
       color: white;
-      padding: 1.2rem 3rem;
-      border: none;
+      padding: 1.5rem 4rem;
+      border: 3px solid #000000;
       border-radius: 50px;
-      font-weight: 700;
-      font-size: 1.1rem;
+      font-weight: 800;
+      font-size: 1.2rem;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
       text-transform: uppercase;
-      letter-spacing: 1px;
-      box-shadow: 0 4px 15px rgba(44, 62, 80, 0.2);
+      letter-spacing: 2px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-view-all::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .btn-view-all:hover::before {
+      left: 100%;
     }
 
     .btn-view-all:hover {
-      background: #34495e;
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(44, 62, 80, 0.3);
+      background: #ffffff;
+      color: #000000;
+      border-color: #000000;
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
     }
 
     /* Responsive Design */
@@ -368,7 +433,7 @@ import { CartService } from '../service/cart.service';
       }
 
       .category-card {
-        height: 300px;
+        height: 350px;
       }
 
       .section-title {
@@ -381,7 +446,7 @@ import { CartService } from '../service/cart.service';
 export class MainBodyComponent implements OnInit, OnDestroy {
   currentImageIndex = 0;
   carouselInterval: any;
-  autoSlideInterval = 6000; // 6 seconds between slides
+  autoSlideInterval = 8000; // 8 seconds between slides
   heroImages = [
     'assets/products/black_table.jpg',
     'assets/products/predator_black.jpg',

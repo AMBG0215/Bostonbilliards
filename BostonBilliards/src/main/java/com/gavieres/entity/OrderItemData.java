@@ -52,6 +52,9 @@ public class OrderItemData {
     @Column(name = "admin_notes", columnDefinition = "TEXT")
     private String adminNotes;
 
+    @Column(name = "customer_notes", columnDefinition = "TEXT")
+    private String customerNotes;
+
     @Column(name = "created")
     private LocalDateTime created;
 
@@ -185,6 +188,14 @@ public class OrderItemData {
 
     public void setAdminNotes(String adminNotes) {
         this.adminNotes = adminNotes;
+    }
+
+    public String getCustomerNotes() {
+        return customerNotes;
+    }
+
+    public void setCustomerNotes(String customerNotes) {
+        this.customerNotes = customerNotes;
     }
 
     public LocalDateTime getCreated() {

@@ -18,6 +18,7 @@ export class HeaderComponent {
   isCategoryDropdownOpen = false;
   showProductsDropdown = false;
   currentUser: User | null = null;
+  selectedCategory: string = 'All';
 
   categories = [
     { name: 'Pool Cues' },
@@ -49,6 +50,11 @@ export class HeaderComponent {
     this.isCategoryDropdownOpen = false;
   }
 
+  selectCategory(category: string) {
+    this.selectedCategory = category;
+    this.closeCategoryDropdown();
+  }
+
   isActiveRoute(route: string): boolean {
     return this.router.url === route;
   }
@@ -61,8 +67,16 @@ export class HeaderComponent {
 
   onSearch() {
     if (this.searchQuery.trim()) {
-      // Implement search functionality here
-      console.log('Searching for:', this.searchQuery);
+      // Navigate to product page with search query
+      const queryParams: any = { search: this.searchQuery.trim() };
+      
+      // If a category is selected (not 'All'), include it in the query
+      if (this.selectedCategory && this.selectedCategory !== 'All') {
+        queryParams.category = this.selectedCategory;
+      }
+      
+      this.router.navigate(['/product'], { queryParams });
+      this.searchQuery = ''; // Clear search after searching
     }
   }
 

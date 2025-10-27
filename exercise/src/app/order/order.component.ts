@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { OrderService, OrderItem } from '../service/order.service';
 import { PriceFormatService } from '../service/price-format.service';
 import { AuthService } from '../service/auth.service';
@@ -16,7 +17,7 @@ interface OrderGroup {
 @Component({
   selector: 'app-order',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, FormsModule],
   templateUrl: './order.component.html',
   styleUrls: ['./order.component.css']
 })
@@ -26,6 +27,12 @@ export class OrderComponent implements OnInit {
   loading: boolean = true;
   error: string = '';
   isAdmin: boolean = false;
+  showNotesDialog: boolean = false;
+  adminNotes: string = '';
+  currentOrderId: number | null = null;
+  currentAction: string = '';
+  customerNotes: string = '';
+  editingCustomerNotes: number | null = null;
 
   constructor(
     private orderService: OrderService,
@@ -172,50 +179,115 @@ export class OrderComponent implements OnInit {
 
   // Admin order management methods
   acceptOrder(orderId: number): void {
-    const adminNotes = prompt('Add admin notes (optional):') || '';
-    this.orderService.updateOrderStatus(orderId, 'ACCEPTED', adminNotes).subscribe({
-      next: () => {
-        alert('Order accepted successfully!');
-        this.loadOrders(); // Reload orders to show updated status
-      },
-      error: (error) => {
-        console.error('Error accepting order:', error);
-        alert('Failed to accept order. Please try again.');
-      }
-    });
+    this.currentOrderId = orderId;
+    this.currentAction = 'ACCEPTED';
+    this.adminNotes = '';
+    this.showNotesDialog = true;
   }
 
   rejectOrder(orderId: number): void {
-    const adminNotes = prompt('Add admin notes (required for rejection):') || '';
-    if (!adminNotes.trim()) {
+    this.currentOrderId = orderId;
+    this.currentAction = 'REJECTED';
+    this.adminNotes = '';
+    this.showNotesDialog = true;
+  }
+
+  processOrder(orderId: number): void {
+    this.currentOrderId = orderId;
+    this.currentAction = 'PROCESSING';
+    this.adminNotes = '';
+    this.showNotesDialog = true;
+  }
+
+  submitAdminNotes(): void {
+    if (this.currentAction === 'REJECTED' && !this.adminNotes.trim()) {
       alert('Admin notes are required when rejecting an order.');
       return;
     }
-    
-    this.orderService.updateOrderStatus(orderId, 'REJECTED', adminNotes).subscribe({
-      next: () => {
-        alert('Order rejected successfully!');
-        this.loadOrders(); // Reload orders to show updated status
+
+    if (this.currentOrderId !== null) {
+      // If currentAction is empty, it means we're just replying (no status change)
+      if (this.currentAction === '') {
+        // Just update the admin notes without changing status
+        const order = this.orders.find(o => o.id === this.currentOrderId);
+        if (order) {
+          order.adminNotes = this.adminNotes;
+          order.lastUpdated = new Date().toISOString();
+          this.orderService.updateOrder(this.currentOrderId, order).subscribe({
+            next: () => {
+              alert('Reply sent successfully!');
+              this.closeNotesDialog();
+              this.loadOrders();
+            },
+            error: (error) => {
+              console.error('Error sending reply:', error);
+              alert('Failed to send reply. Please try again.');
+            }
+          });
+        }
+      } else {
+        // Update status + admin notes (existing functionality)
+        this.orderService.updateOrderStatus(this.currentOrderId, this.currentAction, this.adminNotes).subscribe({
+          next: () => {
+            alert(`Order ${this.currentAction.toLowerCase()} successfully!`);
+            this.closeNotesDialog();
+            this.loadOrders();
+          },
+          error: (error) => {
+            console.error('Error updating order:', error);
+            alert('Failed to update order. Please try again.');
+          }
+        });
+      }
+    }
+  }
+
+  closeNotesDialog(): void {
+    this.showNotesDialog = false;
+    this.adminNotes = '';
+    this.currentOrderId = null;
+    this.currentAction = '';
+  }
+
+  // Customer notes methods
+  startEditingCustomerNotes(order: OrderGroup): void {
+    this.editingCustomerNotes = order.orderId;
+    this.customerNotes = order.items[0].customerNotes || '';
+  }
+
+  saveCustomerNotes(order: OrderGroup): void {
+    if (!order.items[0].id) return;
+
+    this.orderService.updateCustomerNotes(order.items[0].id, this.customerNotes).subscribe({
+      next: (updatedOrder) => {
+        // Update all items in this order with the new customer notes
+        order.items.forEach(item => {
+          item.customerNotes = updatedOrder.customerNotes;
+          item.lastUpdated = updatedOrder.lastUpdated;
+        });
+        this.editingCustomerNotes = null;
+        alert('Your message has been sent!');
       },
       error: (error) => {
-        console.error('Error rejecting order:', error);
-        alert('Failed to reject order. Please try again.');
+        console.error('Error updating customer notes:', error);
+        alert('Failed to send message. Please try again.');
       }
     });
   }
 
-  processOrder(orderId: number): void {
-    const adminNotes = prompt('Add admin notes (optional):') || '';
-    this.orderService.updateOrderStatus(orderId, 'PROCESSING', adminNotes).subscribe({
-      next: () => {
-        alert('Order marked as processing!');
-        this.loadOrders();
-      },
-      error: (error) => {
-        console.error('Error updating order:', error);
-        alert('Failed to update order. Please try again.');
-      }
-    });
+  cancelEditingCustomerNotes(): void {
+    this.editingCustomerNotes = null;
+    this.customerNotes = '';
+  }
+
+  // Admin reply to customer message (without changing order status)
+  replyToCustomer(order: OrderGroup): void {
+    if (!order.items[0].id) return;
+    
+    this.currentOrderId = order.items[0].id;
+    this.currentAction = ''; // No status change
+    this.adminNotes = order.items[0].adminNotes || '';
+    this.showNotesDialog = true;
   }
 }
 

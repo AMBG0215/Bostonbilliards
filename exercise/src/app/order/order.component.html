@@ -1,6 +1,12 @@
-<div class="container">
-  <h1>{{ isAdmin ? 'All Orders' : 'My Orders' }}</h1>
+<!-- Hero Section -->
+<div class="hero-section">
+  <div class="hero-content">
+    <h1 class="hero-title">{{ isAdmin ? 'All Orders' : 'My Orders' }}</h1>
+    <p class="hero-subtitle">{{ isAdmin ? 'Manage and track all customer orders' : 'View and track your order history' }}</p>
+  </div>
+</div>
 
+<div class="container">
   <!-- Loading State -->
   <div class="loading" *ngIf="loading">
     <p>Loading orders...</p>
@@ -94,10 +100,88 @@
           </div>
         </div>
         
-        <!-- Admin Notes Display -->
-        <div class="admin-notes" *ngIf="isAdmin && order.items[0].adminNotes">
+        <!-- Admin Notes Display - Visible to BOTH Admin and Customer -->
+        <div class="admin-notes" *ngIf="order.items[0].adminNotes">
           <h4>Admin Notes:</h4>
           <p>{{ order.items[0].adminNotes }}</p>
         </div>
-      </div>
 
+        <!-- Customer Notes Section -->
+        <div class="customer-notes-section">
+          <h4>{{ isAdmin ? 'Customer Message' : 'Your Message to Admin' }}</h4>
+          
+          <!-- Show existing customer notes (read-only) -->
+          <div *ngIf="order.items[0].customerNotes && editingCustomerNotes !== order.orderId" class="customer-notes-display">
+            <p>{{ order.items[0].customerNotes }}</p>
+            <button 
+              *ngIf="!isAdmin" 
+              class="btn btn-edit" 
+              (click)="startEditingCustomerNotes(order)">
+              Edit Message
+            </button>
+          </div>
+
+          <!-- Edit/Add customer notes (for customers only) -->
+          <div *ngIf="!isAdmin && (!order.items[0].customerNotes || editingCustomerNotes === order.orderId)" class="customer-notes-edit">
+            <textarea 
+              [(ngModel)]="customerNotes" 
+              class="notes-textarea"
+              placeholder="Have a question about this order? Ask the admin here..."
+              rows="3">
+            </textarea>
+            <div class="notes-actions">
+              <button class="btn btn-primary" (click)="saveCustomerNotes(order)">
+                {{ order.items[0].customerNotes ? 'Update Message' : 'Send Message' }}
+              </button>
+              <button 
+                *ngIf="order.items[0].customerNotes" 
+                class="btn btn-secondary" 
+                (click)="cancelEditingCustomerNotes()">
+                Cancel
+              </button>
+            </div>
+          </div>
+
+          <!-- No notes yet (read-only for admin) -->
+          <p *ngIf="isAdmin && !order.items[0].customerNotes" class="no-notes">
+            Customer hasn't sent a message yet.
+          </p>
+
+          <!-- Admin Reply Button (only if customer sent a message) -->
+          <button 
+            *ngIf="isAdmin && order.items[0].customerNotes" 
+            class="btn btn-reply" 
+            (click)="replyToCustomer(order)">
+            {{ order.items[0].adminNotes ? 'Update Reply' : 'Reply to Customer' }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Admin Notes Dialog Modal -->
+<div class="modal-overlay" *ngIf="showNotesDialog" (click)="closeNotesDialog()">
+  <div class="modal-dialog" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h3>{{ currentAction === '' ? 'Reply to Customer' : 'localhost:4200 says' }}</h3>
+    </div>
+    <div class="modal-body">
+      <label for="adminNotes">
+        {{ currentAction === '' ? 'Your reply to customer:' : 'Add admin notes ' + (currentAction === 'REJECTED' ? '(required for rejection)' : '(optional)') + ':' }}
+      </label>
+      <textarea 
+        id="adminNotes" 
+        [(ngModel)]="adminNotes" 
+        class="notes-input"
+        placeholder="Enter your notes here..."
+        rows="4"
+        [autofocus]="true">
+      </textarea>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-btn modal-btn-secondary" (click)="closeNotesDialog()">Cancel</button>
+      <button class="modal-btn modal-btn-primary" (click)="submitAdminNotes()">OK</button>
+    </div>
+  </div>
+</div>

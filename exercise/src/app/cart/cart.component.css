@@ -1,3 +1,62 @@
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 60px;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 20px 0;
+  letter-spacing: -1px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  line-height: 1.6;
+  animation: fadeInUp 0.8s ease-out 0.2s backwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .container {
   max-width: 1000px;
   margin: 0 auto;
@@ -65,7 +124,7 @@ h1 {
 }
 
 .btn-quantity {
-  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+  background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
   color: white;
   border: 2px solid transparent;
   width: 30px;
@@ -91,7 +150,7 @@ h1 {
 }
 
 .btn-quantity:hover {
-  background: linear-gradient(135deg, #000000 0%, #2a2a2a 100%);
+  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
   transform: translateY(-2px);
   border-color: rgba(255, 255, 255, 0.3);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -123,7 +182,7 @@ h1 {
 }
 
 .btn-remove {
-  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+  background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
   color: white;
   border: 2px solid transparent;
   padding: 0.5rem 1rem;
@@ -150,7 +209,7 @@ h1 {
 }
 
 .btn-remove:hover {
-  background: linear-gradient(135deg, #000000 0%, #2a2a2a 100%);
+  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
   transform: translateY(-2px);
   border-color: rgba(255, 255, 255, 0.3);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -187,12 +246,61 @@ h1 {
   margin-top: 1rem;
 }
 
+.btn-primary {
+  background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+  color: white;
+  border: 2px solid transparent;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 4px 15px rgba(45, 55, 72, 0.3);
+  position: relative;
+  overflow: hidden;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 25px rgba(45, 55, 72, 0.3), 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(45, 55, 72, 0.3);
+}
+
+.btn-primary:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
 .btn-large {
   width: 100%;
   padding: 1rem;
   font-size: 1.1rem;
   margin-top: 1rem;
-  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+  background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
   color: white;
   border: 2px solid transparent;
   border-radius: 8px;
@@ -218,7 +326,7 @@ h1 {
 }
 
 .btn-large:hover {
-  background: linear-gradient(135deg, #000000 0%, #2a2a2a 100%);
+  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
   transform: translateY(-3px);
   border-color: rgba(255, 255, 255, 0.3);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.1);
@@ -369,4 +477,33 @@ textarea.form-control {
   color: #666;
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
+}
+
+/* Responsive Design for Hero Section */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .hero-section {
+    padding: 60px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-section {
+    padding: 50px 15px;
+  }
 }

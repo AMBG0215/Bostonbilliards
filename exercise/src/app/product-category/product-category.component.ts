@@ -17,6 +17,7 @@ export class ProductCategoryComponent implements OnInit {
   public allProducts: Product[] = [];
   public filteredProducts: Product[] = [];
   public selectedCategory: string = '';
+  public searchQuery: string = '';
 
   constructor(
     private productService: ProductService,
@@ -28,6 +29,7 @@ export class ProductCategoryComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.selectedCategory = params['category'] || '';
+      this.searchQuery = params['search'] || '';
       this.loadProducts();
     });
   }
@@ -87,13 +89,27 @@ export class ProductCategoryComponent implements OnInit {
   }
 
   filterProducts(): void {
-    if (!this.selectedCategory) {
-      this.filteredProducts = this.allProducts;
-    } else {
-      this.filteredProducts = this.allProducts.filter(product =>
+    let filtered = this.allProducts;
+
+    // Filter by category if selected
+    if (this.selectedCategory) {
+      filtered = filtered.filter(product =>
         product.categoryName === this.selectedCategory
       );
     }
+
+    // Filter by search query if provided
+    if (this.searchQuery) {
+      const query = this.searchQuery.toLowerCase();
+      filtered = filtered.filter(product =>
+        (product.name && product.name.toLowerCase().includes(query)) ||
+        (product.description && product.description.toLowerCase().includes(query)) ||
+        (product.categoryName && product.categoryName.toLowerCase().includes(query)) ||
+        (product.brand && product.brand.toLowerCase().includes(query))
+      );
+    }
+
+    this.filteredProducts = filtered;
   }
 
   getProductImage(imageFile: string | null | undefined): string {

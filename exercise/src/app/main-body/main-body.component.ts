@@ -147,7 +147,7 @@ import { CartService } from '../service/cart.service';
     }
 
     .arrow-left, .arrow-right {
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(45, 55, 72, 0.9);
       color: white;
       border: none;
       width: 50px;
@@ -159,7 +159,7 @@ import { CartService } from '../service/cart.service';
     }
 
     .arrow-left:hover, .arrow-right:hover {
-      background: #000000;
+      background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
       transform: scale(1.1);
     }
 
@@ -241,15 +241,15 @@ import { CartService } from '../service/cart.service';
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+      background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
       color: white;
     }
 
     .btn-primary:hover {
-      background: linear-gradient(135deg, #000000 0%, #2a2a2a 100%);
+      background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
       transform: translateY(-3px);
       border-color: rgba(255, 255, 255, 0.3);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 25px rgba(45, 55, 72, 0.3), 0 0 20px rgba(255, 255, 255, 0.1);
     }
 
     .btn-primary:hover::before {
@@ -276,12 +276,12 @@ import { CartService } from '../service/cart.service';
     .section-title {
       font-size: 2.5rem;
       font-weight: 800;
-      color: #000000;
+      color: #2d3748;
       text-align: left;
       margin-bottom: 2rem;
       letter-spacing: 1px;
       text-transform: uppercase;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+      text-shadow: 2px 2px 4px rgba(45, 55, 72, 0.1);
     }
 
     .categories-grid {
@@ -304,7 +304,7 @@ import { CartService } from '../service/cart.service';
     .category-card:hover {
       transform: translateY(-15px) scale(1.02);
       box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-      border-color: #000000;
+      border-color: #2d3748;
     }
 
     .category-image {
@@ -367,10 +367,10 @@ import { CartService } from '../service/cart.service';
     }
 
     .btn-view-all {
-      background: #000000;
+      background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
       color: white;
       padding: 1.5rem 4rem;
-      border: 3px solid #000000;
+      border: 3px solid transparent;
       border-radius: 50px;
       font-weight: 800;
       font-size: 1.2rem;
@@ -378,7 +378,7 @@ import { CartService } from '../service/cart.service';
       transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
       text-transform: uppercase;
       letter-spacing: 2px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 8px 25px rgba(45, 55, 72, 0.3);
       position: relative;
       overflow: hidden;
     }
@@ -399,11 +399,11 @@ import { CartService } from '../service/cart.service';
     }
 
     .btn-view-all:hover {
-      background: #ffffff;
-      color: #000000;
-      border-color: #000000;
+      background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.3);
       transform: translateY(-5px) scale(1.05);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 15px 35px rgba(45, 55, 72, 0.4);
     }
 
     /* Responsive Design */

@@ -1,5 +1,5 @@
 .main-footer {
-  background: #000000;
+  background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
   color: #ffffff;
   padding: 50px 0 20px;
   margin-top: 50px;
@@ -55,6 +55,7 @@
 
 .footer-section ul li a:hover {
   color: #ffffff;
+  opacity: 0.8;
 }
 
 .social-links {
@@ -67,19 +68,19 @@
   color: #ffffff;
   text-decoration: none;
   padding: 8px 12px;
-  border: 1px solid #000000;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 5px;
   transition: all 0.3s ease;
 }
 
 .social-link:hover {
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.2);
   border-color: #ffffff;
-  color: white;
+  color: #ffffff;
 }
 
 .footer-bottom {
-  border-top: 1px solid #000000;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
   padding-top: 20px;
   text-align: center;
   opacity: 0.8;

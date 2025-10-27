@@ -1,11 +1,22 @@
-<div class="container-fluid hero-contact p-0 m-0">
-  <h2 *ngIf="!selectedCategory">Billiards Store</h2>
-  <h2 *ngIf="selectedCategory">{{selectedCategory}} Products</h2>
+<!-- Hero Section -->
+<div class="hero-section">
+  <div class="hero-content">
+    <h1 class="hero-title" *ngIf="!selectedCategory && !searchQuery">Billiards Store</h1>
+    <h1 class="hero-title" *ngIf="selectedCategory && !searchQuery">{{selectedCategory}} Products</h1>
+    <h1 class="hero-title" *ngIf="searchQuery && !selectedCategory">Search Results</h1>
+    <h1 class="hero-title" *ngIf="searchQuery && selectedCategory">Search Results</h1>
+    
+    <p class="hero-subtitle" *ngIf="!selectedCategory && !searchQuery">Premium billiards equipment and accessories</p>
+    <p class="hero-subtitle" *ngIf="selectedCategory && !searchQuery">Browse our collection of {{selectedCategory}}</p>
+    <p class="hero-subtitle" *ngIf="searchQuery && !selectedCategory">Found {{filteredProducts.length}} product(s) matching "{{searchQuery}}"</p>
+    <p class="hero-subtitle" *ngIf="searchQuery && selectedCategory">Found {{filteredProducts.length}} product(s) matching "{{searchQuery}}" in {{selectedCategory}}</p>
+  </div>
+</div>
 
-  <!-- Category Filter Info -->
-  <div *ngIf="selectedCategory" class="category-filter-info">
-    <p>Showing {{filteredProducts.length}} product(s) in {{selectedCategory}}</p>
-    <a routerLink="/product" class="view-all-link">View All Products</a>
+<div class="container-fluid p-0 m-0">
+  <!-- Filter Info -->
+  <div *ngIf="selectedCategory || searchQuery" class="category-filter-info">
+    <a routerLink="/product" class="view-all-link">← View All Products</a>
   </div>
 
   <!-- Product Grid -->

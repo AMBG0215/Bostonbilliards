@@ -20,6 +20,7 @@ export interface OrderItem {
   status?: number;
   orderStatus?: string;
   adminNotes?: string;
+  customerNotes?: string;
   created?: string;
   lastUpdated?: string;
 }
@@ -82,6 +83,11 @@ export class OrderService {
   updateOrderStatus(id: number, orderStatus: string, adminNotes: string): Observable<OrderItem> {
     const body = { orderStatus, adminNotes };
     return this.http.put<OrderItem>(`${this.apiUrl}/${id}/status`, body, { headers: this.getAuthHeaders() });
+  }
+
+  updateCustomerNotes(id: number, customerNotes: string): Observable<OrderItem> {
+    const body = { customerNotes };
+    return this.http.put<OrderItem>(`${this.apiUrl}/${id}/customer-notes`, body, { headers: this.getAuthHeaders() });
   }
 }
 

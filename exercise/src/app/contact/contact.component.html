@@ -1,53 +1,88 @@
-<div class="contact-container">
-  <div class="container">
-    <h1>Contact Us</h1>
-    <div class="contact-content">
-      <div class="contact-info">
-        <h2>Get in Touch</h2>
-        <p>We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
-        
-        <div class="contact-details">
-          <div class="contact-item">
-            <h3>Address</h3>
-            <p>123 Billiards Street<br>Boston, MA 02101</p>
+<div class="contact-wrapper">
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">Contact Us</h1>
+      <p class="hero-subtitle">We're here to help and answer any question you might have</p>
+    </div>
+  </div>
+
+  <!-- Contact Cards Section -->
+  <div class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Address Card -->
+        <div class="contact-card">
+          <div class="card-icon address-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            </svg>
           </div>
-          
-          <div class="contact-item">
-            <h3>Phone</h3>
-            <p>(555) 123-BILLIARDS</p>
+          <h3 class="card-title">Visit Us</h3>
+          <p class="card-text">123 Hayes Street<br>Makati City<br>Metro Manila, Philippines</p>
+          <a href="https://maps.google.com" target="_blank" class="card-link">Get Directions →</a>
+        </div>
+
+        <!-- Phone Card -->
+        <div class="contact-card">
+          <div class="card-icon phone-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+            </svg>
           </div>
-          
-          <div class="contact-item">
-            <h3>Email</h3>
-            <p>info@bostonbilliards.com</p>
+          <h3 class="card-title">Call Us</h3>
+          <p class="card-text">Phone: (555) 123-BILLIARDS<br>Toll-Free: 1-800-BILLIARDS</p>
+          <a href="tel:+15551232455427" class="card-link">Call Now →</a>
+        </div>
+
+        <!-- Email Card -->
+        <div class="contact-card">
+          <div class="card-icon email-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+          </div>
+          <h3 class="card-title">Email Us</h3>
+          <p class="card-text">General: bostonbilliards0@gmail.com<br></p>
+          <a href="mailto:info@bostonbilliards.com" class="card-link">Send Email →</a>
+        </div>
+      </div>
+
+      <!-- Business Hours Section -->
+      <div class="hours-section">
+        <div class="hours-card">
+          <div class="hours-header">
+            <div class="card-icon clock-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
+                <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+              </svg>
+            </div>
+            <h3 class="hours-title">Business Hours</h3>
+          </div>
+          <div class="hours-grid">
+            <div class="hour-row">
+              <span class="day">Monday - Friday</span>
+              <span class="time">9:00 AM - 6:00 PM</span>
+            </div>
+            <div class="hour-row">
+              <span class="day">Saturday</span>
+              <span class="time">10:00 AM - 4:00 PM</span>
+            </div>
+            <div class="hour-row closed">
+              <span class="day">Sunday</span>
+              <span class="time">Closed</span>
+            </div>
           </div>
         </div>
       </div>
-      
-      <div class="contact-form">
-        <form>
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
-          </div>
-          
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-          </div>
-          
-          <div class="form-group">
-            <label for="subject">Subject</label>
-            <input type="text" id="subject" name="subject" required>
-          </div>
-          
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-          </div>
-          
-          <button type="submit" class="submit-btn">Send Message</button>
-        </form>
+
+      <!-- Additional Info Section -->
+      <div class="info-section">
+        <div class="info-box">
+          <h3>Have Questions About Your Order?</h3>
+          <p>If you have placed an order and need to communicate with us, please visit your <a routerLink="/order" class="inline-link">Orders page</a> where you can send us a message directly about your specific order.</p>
+        </div>
       </div>
     </div>
   </div>

@@ -121,5 +121,24 @@ public class OrderController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ex.getMessage());
         }
     }
+
+    @PutMapping("/{id}/customer-notes")
+    public ResponseEntity<?> updateCustomerNotes(@PathVariable Long id, @RequestBody java.util.Map<String, String> request) {
+        try {
+            String customerNotes = request.get("customerNotes");
+            OrderItemData order = orderItemService.getOrderById(id)
+                    .orElseThrow(() -> new RuntimeException("Order not found"));
+            
+            order.setCustomerNotes(customerNotes);
+            order.setLastUpdated(java.time.LocalDateTime.now());
+            OrderItemData updatedOrder = orderItemService.updateOrder(order);
+            
+            log.info("Updated customer notes for order {}", id);
+            return ResponseEntity.ok(updatedOrder);
+        } catch (Exception ex) {
+            log.error("Failed to update customer notes for order {}: {}", id, ex.getMessage(), ex);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ex.getMessage());
+        }
+    }
 }
 

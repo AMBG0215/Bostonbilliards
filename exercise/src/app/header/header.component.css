@@ -31,7 +31,7 @@
   text-decoration: none;
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 8px;
 }
 
 .logo-image {
@@ -49,9 +49,11 @@
   margin: 0;
   font-size: 2.2rem;
   color: #ffffff;
-  font-weight: 900;
+  font-weight: 400;
+  font-family: 'Fjalla One', sans-serif;
   letter-spacing: 1px;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  text-transform: uppercase;
 }
 
 /* Search Wrapper */
@@ -520,6 +522,7 @@
 
   .logo h1 {
     font-size: 1.5rem;
+    font-family: 'Fjalla One', sans-serif;
   }
 }
 
@@ -535,6 +538,7 @@
 
   .logo h1 {
     font-size: 1.8rem;
+    font-family: 'Fjalla One', sans-serif;
   }
 
   .search-wrapper {

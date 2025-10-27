@@ -179,25 +179,22 @@ import { CartService } from '../service/cart.service';
 
     .hero-content h1 {
       font-size: 3.5rem;
-      font-weight: 900;
+      font-weight: 400;
+      font-family: 'Fjalla One', sans-serif;
       margin-bottom: 0.5rem;
       text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
       letter-spacing: 2px;
+      text-transform: uppercase;
     }
 
     .hero-content h2 {
       font-size: 2.5rem;
-      font-weight: 700;
+      font-weight: 400;
+      font-family: 'Fjalla One', sans-serif;
       margin-bottom: 1.5rem;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
       letter-spacing: 1px;
-    }
-
-    .hero-content p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      opacity: 0.9;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+      text-transform: uppercase;
     }
 
     .hero-content p {
@@ -275,7 +272,8 @@ import { CartService } from '../service/cart.service';
 
     .section-title {
       font-size: 2.5rem;
-      font-weight: 800;
+      font-weight: 400;
+      font-family: 'Fjalla One', sans-serif;
       color: #2d3748;
       text-align: left;
       margin-bottom: 2rem;
@@ -336,11 +334,12 @@ import { CartService } from '../service/cart.service';
     .category-overlay h3 {
       color: #ffffff;
       font-size: 2.2rem;
-      font-weight: 900;
+      font-weight: 400;
+      font-family: 'Fjalla One', sans-serif;
       text-transform: uppercase;
       letter-spacing: 3px;
       margin: 0;
-      text-shadow: none;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
       position: relative;
     }
 
@@ -416,6 +415,11 @@ import { CartService } from '../service/cart.service';
     @media (max-width: 768px) {
       .hero-content h1 {
         font-size: 2.5rem;
+        font-family: 'Fjalla One', sans-serif;
+      }
+      
+      .hero-content h2 {
+        font-family: 'Fjalla One', sans-serif;
       }
       
       .hero-content p {
@@ -439,6 +443,11 @@ import { CartService } from '../service/cart.service';
       .section-title {
         font-size: 2rem;
         text-align: center;
+        font-family: 'Fjalla One', sans-serif;
+      }
+      
+      .category-overlay h3 {
+        font-family: 'Fjalla One', sans-serif;
       }
     }
   `]

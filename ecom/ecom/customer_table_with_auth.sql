@@ -40,7 +40,3 @@ SELECT 'Customer table created successfully with authentication fields!' as Stat
 SELECT COUNT(*) as 'Total Customers' FROM customer_data;
 SELECT role, COUNT(*) as 'Count' FROM customer_data GROUP BY role;
 
--- Show the admin credentials
-SELECT 'Admin Login Credentials:' as Info;
-SELECT 'Email: admin@bostonbilliards.com' as Email;
-SELECT 'Password: admin123' as Password;

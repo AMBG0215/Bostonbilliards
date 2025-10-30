@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29d71950-2fb9-4751-9b0e-836f41083b2c" name="Changes" comment="paymongo backend implemented - put the API keys in BostonBilliards/src/main/resources/application-paymongo.properties" />
+    <list default="true" id="29d71950-2fb9-4751-9b0e-836f41083b2c" name="Changes" comment="removed paymongo">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BostonBilliards/src/main/java/com/gavieres/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/BostonBilliards/src/main/java/com/gavieres/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecom/ecom/customer_table_with_auth.sql" beforeDir="false" afterPath="$PROJECT_DIR$/ecom/ecom/customer_table_with_auth.sql" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,16 +39,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "frontend",
-    "kotlin-language-version-configured": "true",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;frontend&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/SCHOOL/CODES/Bostonbilliards&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="TaskManager">
     <task id="LOCAL-00001" summary="added orders, admin, create account">
       <option name="closed" value="true" />
@@ -76,13 +82,22 @@
       <option name="project" value="LOCAL" />
       <updated>1761579775606</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="removed paymongo">
+      <option name="closed" value="true" />
+      <created>1761631853753</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1761631853753</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added orders, admin, create account" />
     <MESSAGE value="fixed the design" />
     <MESSAGE value="paymongo backend implemented - put the API keys in BostonBilliards/src/main/resources/application-paymongo.properties" />
-    <option name="LAST_COMMIT_MESSAGE" value="paymongo backend implemented - put the API keys in BostonBilliards/src/main/resources/application-paymongo.properties" />
+    <MESSAGE value="removed paymongo" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed paymongo" />
   </component>
 </project>

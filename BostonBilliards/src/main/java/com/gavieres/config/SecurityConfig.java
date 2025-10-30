@@ -44,6 +44,8 @@ public class SecurityConfig {
                 .requestMatchers("/api/product/**").permitAll()
                 .requestMatchers("/api/menu/**").permitAll()
                 .requestMatchers("/api/customer").permitAll() // Allow customer registration
+                .requestMatchers("/api/webhooks/**").permitAll() // PayMongo webhooks (no auth required)
+                .requestMatchers("/api/payment/**").hasAnyRole("CUSTOMER", "ADMIN") // Payment endpoints
                 .requestMatchers("/api/order/**").hasAnyRole("CUSTOMER", "ADMIN")
                 .requestMatchers("/api/customer/**").hasAnyRole("CUSTOMER", "ADMIN")
                 .anyRequest().authenticated()

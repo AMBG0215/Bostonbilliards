@@ -20,3 +20,4 @@ SELECT 'Current orders with status:' as Info;
 SELECT id, orderId, customerName, productName, quantity, price, status, order_status, admin_notes, created 
 FROM order_item_data 
 ORDER BY created DESC;
+

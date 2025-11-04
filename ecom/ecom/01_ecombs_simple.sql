@@ -119,3 +119,4 @@ SELECT 'Simple Billiards Store Database (ecombs) Setup Complete!' as Status;
 SELECT COUNT(*) as 'Menu Items' FROM menu_data;
 SELECT COUNT(*) as 'Products' FROM product_data;
 SELECT COUNT(*) as 'Order Items' FROM order_item_data;
+

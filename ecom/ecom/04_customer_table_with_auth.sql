@@ -40,3 +40,4 @@ SELECT 'Customer table created successfully with authentication fields!' as Stat
 SELECT COUNT(*) as 'Total Customers' FROM customer_data;
 SELECT role, COUNT(*) as 'Count' FROM customer_data GROUP BY role;
 
+

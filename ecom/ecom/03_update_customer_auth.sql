@@ -17,3 +17,4 @@ VALUES ('Admin', NULL, 'User', 'admin@bostonbilliards.com', '555-000-0000', '123
 SELECT 'Customer table updated successfully with authentication fields!' as Status;
 SELECT COUNT(*) as 'Total Customers' FROM customer_data;
 SELECT role, COUNT(*) as 'Count' FROM customer_data GROUP BY role;
+

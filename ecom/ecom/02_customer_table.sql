@@ -32,3 +32,4 @@ INSERT INTO customer_data (firstname, middlename, lastname, email, phone, addres
 SELECT 'Customer table created successfully!' as Status;
 SELECT COUNT(*) as 'Total Customers' FROM customer_data;
 
+

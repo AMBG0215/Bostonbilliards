@@ -111,12 +111,4 @@ INSERT INTO order_item_data VALUES
 (4,'2024-10-23 10:30:22',4,'Jennifer Brown','2024-10-23 10:30:22',4,1999.99,'Billiard Balls','Budget Billiard Ball Set 2 inch',4,'aramith_balls.jpg','Budget Billiard Ball Set 2','set',1,1),
 (5,'2024-10-23 10:34:41',5,'Michael Davis','2024-10-23 10:34:41',5,999.99,'Billiard Balls','Billiard Ball Set 1',5,'aramith_premium.jpg','Billiard Ball Set 1','set',1,1);
 
--- Insert hibernate sequence
-INSERT INTO hibernate_sequence VALUES (40);
-
--- Display summary
-SELECT 'Simple Billiards Store Database (ecombs) Setup Complete!' as Status;
-SELECT COUNT(*) as 'Menu Items' FROM menu_data;
-SELECT COUNT(*) as 'Products' FROM product_data;
-SELECT COUNT(*) as 'Order Items' FROM order_item_data;
 
